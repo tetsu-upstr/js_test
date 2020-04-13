@@ -7,26 +7,26 @@
 // console.log(array[3]);
 
 // オブジェクトの書き方
-const member = {
-  // キーと値
-  'name': '本田',
-  'height': 170,
-  'hobby': 'サッカー'
-};
+// const member = {
+//   // キーと値
+//   'name': '本田',
+//   'height': 170,
+//   'hobby': 'サッカー'
+// };
 // console.log(member['name']);
 // console.log(member.name);
 
 // 連想配列の書き方
-const member_2 = {
-  '本田':{
-    'height':170,
-    'hobby':'サッカー'
-  },
-  'kagawa':{
-    'height':165,
-    'hobby':'サッカー'
-  }
-};
+// const member_2 = {
+//   '本田':{
+//     'height':170,
+//     'hobby':'サッカー'
+//   },
+//   'kagawa':{
+//     'height':165,
+//     'hobby':'サッカー'
+//   }
+// };
 // console.log(member_2['本田']['height']);
 
 // この書き方でも出来るが日本語では推奨されない
@@ -128,3 +128,70 @@ const keyList = myMap.keys();
 for ( key of keyList) {
   console.log(key);
 }
+
+const fruits = [
+  'りんご', 'バナナ'
+];
+
+// console.log(fruits);
+// 配列に追加する
+fruits.push('みかん');
+
+// console.log(fruits);
+
+// コールバック関数
+// fruits.forEach(function(input){
+//   console.log(input);
+// });
+
+// 一般的な関数の作り方
+// function getItem(){}
+
+// アロー関数
+// 名前あり
+// const getItem = () => {console.log('アロー')};
+// 名前あり　1行なら{}不要
+// const getItem = () => console.log('アロー');
+// getItem();
+
+// 引数が１個なら()すら不要
+const double = x => x * 2;
+console.log(double(2));
+
+// fruits.forEach(input => console.log(input));
+
+// array.filter 条件でフィルタリングする
+const scores = [10, 20, 30, 40];
+
+// const newScores = scores.filter((value) =>{
+//   return value > 30;
+// });
+const newScores = scores.filter(value => value > 30);
+
+console.log(newScores);
+
+// array.find 条件にあった一番最初の文字列を見つける
+const members = ['本田', '香川', '長友'];
+
+const member = members.find(value => value === '長友');
+
+console.log(member);
+
+// array.map 配列を元に新しい配列を作る
+const userList = [10, 20, 30, 40];
+
+// テンプレート文字列 `${}` バッククォート
+// const userIdList = userList.map(value => {
+//   return `user_${value}`;
+// });
+const userIdList = userList.map(value => `user_${value}`);
+
+console.table(userIdList);
+
+// Objectオブジェクト
+// const test = new Object();
+const test = {
+  test1:10,
+  test2:20,
+  test3:30
+};
