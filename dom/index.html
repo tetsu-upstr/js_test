@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+  </style>
 </head>
 <body>
   <div id='test' class="test_list">
@@ -17,15 +25,32 @@
   <p class="borer-red">ああ</p>
   <p>aa</p>
 
+  <input id="input">
+
   <script>
     'use strict';
 
+    const input = document.getElementById('input');
+    // Elementに属性をつけることの可能
+    input.type = 'text';
+    input.name = 'name';
+    console.log(input);
+
     const test = document.getElementById('test');
+    // test.classList.add('red');
+    // test.classList.remove('red');
+    test.classList.toggle('red');
+    // 返り値 Element.classList.toggle
+
     // const testList = document.querySelector('#test');
     const testList = document.querySelector('.test_list');
     // 同じクラスがあれば一番最初の要素が取れる
     console.log(test);
     console.log(testList);
+
+    // Nodelistが取れる
+    const testLists = document.querySelectorAll('.test_list');
+    console.log(testLists);
 
   </script>
 </body>
