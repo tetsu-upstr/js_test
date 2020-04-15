@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div id="grand-father">
+    <div id="parent">
+      <div id="target">
+        自分
+      </div>
+    </div>
+  </div>
+  <div id="divList">
+    <div class="div1">テスト1</div>
+    <div class="div2">テスト2</div>
+    <div class="div3">テスト3</div>
+  </div>
+
+  <script>
+    'use strict';
+    const targer = document.getElementById('target');
+    const newDiv = document.createElement('div');
+    newDiv.id = 'test';
+    newDiv.classList.add('red');
+    newDiv.textContent = 'テスト';
+    // target.appendChild(newDiv); // 指定したelement（この場合はdiv）の中（DOMツリーの下）に追加される
+    target.parentNode.appendChild(newDiv); // parentNodeでひとつ上に上がる（同じ階層に要素が追加される）
+
+  </script>
+</body>
+</html>

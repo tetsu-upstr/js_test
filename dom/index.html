@@ -22,8 +22,6 @@
       <li>う</li>
     </ul>
   </div>
-  <p class="borer-red">ああ</p>
-  <p>aa</p>
 
   <input id="input">
 
@@ -34,7 +32,16 @@
     // Elementに属性をつけることの可能
     input.type = 'text';
     input.name = 'name';
+    // setAttributeでも属性付与は可能だが推奨されるのは上の書き方
+    // input.setAttribute('type', 'text'); 
+    input.textContent = 'テストです'; // タグにテキストを追加
     console.log(input);
+
+    // HTMLタグを作る方法
+    const anchor = document.createElement('a');
+    anchor.href = 'https://www.google.com/';
+    anchor.target = '_blank'; // 別のタグで開く
+    console.log(anchor);
 
     const test = document.getElementById('test');
     // test.classList.add('red');
@@ -45,12 +52,12 @@
     // const testList = document.querySelector('#test');
     const testList = document.querySelector('.test_list');
     // 同じクラスがあれば一番最初の要素が取れる
-    console.log(test);
-    console.log(testList);
+    // console.log(test);
+    // console.log(testList);
 
     // Nodelistが取れる
     const testLists = document.querySelectorAll('.test_list');
-    console.log(testLists);
+    // console.log(testLists);
 
   </script>
 </body>
