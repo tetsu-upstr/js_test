@@ -195,3 +195,65 @@ const test = {
   test2:20,
   test3:30
 };
+
+console.log(test);
+console.log(Object.values(test)); // 値だけ（stringオブジェクトやarrayオブジェクトと書き方が異なる
+
+// for of で１つずつ書き出す
+for(value of Object.values(test)){
+  console.log(value);
+}
+
+// 郵便番号のチェック
+const postalCode = '123-4567';
+
+// オブジェクトの中に関数（メソッド）
+const postal = {
+
+  postalCode: '123-4567',
+
+  // checkPostalCode(string){
+  //   const replaced = string.replace('-', '');
+  //   const length = replaced.length;
+
+  //   if(length === 7){
+  //     return true;
+  //   }
+  //   return false;
+  // }
+
+  checkPostalCode(){
+    const replaced = this.postalCode.replace('-', '');
+    const length = replaced.length;
+
+    if(length === 7){
+      return true;
+    }
+    return false;
+  }
+};
+
+console.log(postal.postalCode);
+// console.log(postal.checkPostalCode(pstalCode));
+
+// thisを使っている場合
+console.log(postal.checkPostalCode());
+
+// メソッドチェーン
+const person = {
+  name:'本田',
+  age:30,
+
+  getName(){
+    console.log(this.name);
+    return this; // 戻り値がthis（オブジェクト自体を指す
+  },
+  getAge(){
+    console.log(this.age);
+    return this;
+  }
+};
+
+// オブジェクト.メソッド.メソッド
+person.getName().getAge();
+

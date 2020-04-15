@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id='test' class="test_list">
+    <ul>
+      <li>あ</li>
+      <li>い</li>
+      <li>う</li>
+    </ul>
+  </div>
+  <p class="borer-red">ああ</p>
+  <p>aa</p>
+
+  <script>
+    'use strict';
+
+    const test = document.getElementById('test');
+    // const testList = document.querySelector('#test');
+    const testList = document.querySelector('.test_list');
+    // 同じクラスがあれば一番最初の要素が取れる
+    console.log(test);
+    console.log(testList);
+
+  </script>
+</body>
+</html>
