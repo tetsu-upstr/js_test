@@ -38,6 +38,17 @@
     // target.appendChild(newDiv); // 指定したelement（この場合はdiv）の中（DOMツリーの下）に追加される
     target.parentNode.appendChild(newDiv); // parentNodeでひとつ上に上がる（同じ階層に要素が追加される）
 
+
+    // 場所を指定して要素を追加したい時
+    const targetList = document.getElementById('divList');
+    // const reference = document.querySelector('.div2');
+    const reference = document.querySelector('.div2').nextElementSibling; // 隣の要素を取得する
+    const newElement = document.createElement('div');
+
+    newElement.classList.add('div4');
+    newElement.textContent = '追加';
+    targetList.insertBefore(newElement, reference);
+
   </script>
 </body>
 </html>
