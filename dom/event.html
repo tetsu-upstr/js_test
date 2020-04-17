@@ -17,15 +17,33 @@
 <body>
 
   <div id="test"></div>
-  <!-- <button id="target" onclick="change_color()">押してね</button> -->
+  <button id="target" onclick="change_color()">押してね</button>
 
   <script>
 
+    // onclickを設置する方法
     // function change_color(){
     //   const test = document.getElementById('target');
     //   test.textContent = 'テスト';
     //   test.classList.add('red');
     // }
+
+    // Jsでonclickを設置する方法
+    // document.getElementById('target').onclick = function(){
+    //   const test = document.getElementById('target');
+    //   test.textContent = 'テスト';
+    //   test.classList.add('red');
+    // }
+
+    // addEventListenerを使う方法
+    const target = document.getElementById('target');
+
+    document.addEventListener('click', (e) => {
+      console.log(e);
+      const test = document.getElementById('target');
+      test.textContent = 'テスト';
+      test.classList.add('red');
+    });
    
 
   </script>
