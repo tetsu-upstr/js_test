@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    function getMonthName (month) {
+      month = month - 1;
+      const months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+      if (months[month] != null) {
+        return months[momth];
+      } else {
+        throw new Error('入力値は無効です')
+        // エラーオブジェクトを作る方法もある
+        // const err = new Error();
+        // err.message = 'エラーです';
+        // throw err;
+      }
+    }
+
+    try {
+      // テストをする分
+      monthName = getMonthName(13);
+    }
+    catch (e) {
+      console.log(e); // 例外オブジェクトをエラー処理部分に渡す
+    }
+
+  </script>
+</body>
+</html>
