@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function test1 () {
+      return "関数1";
+
+    }
+
+    // console.log(test1());
+    // const test2 = function (){
+    //   return '関数2';
+    // }
+    const test2 = () => '関数2';
+    console.log(test2());
+
+    // Promise
+    // 1 状態
+    // 2 Promiseチェーン
+
+    // callback
+    // 引数が状態 ok, ng（１つでも可能 アロー関数なら1つの場合()いらない）
+
+    // promiseメソッドの書き方
+    function promiseTest1() { // インプットなし
+      return new Promise( ok => {
+          // okの処理 resolved: value
+          ok('プロミス1です');
+      });
+    }
+    console.log(promiseTest1());
+
+    // 定数にpromiseを入れる書き方
+    const promiseTest2 = new Promise( ok => {
+      ok('プロミス2です');
+    });
+    console.log(promiseTest2);
+
+    function testPromise3(input) { // インプットあり
+      return new Promise(resolve => {
+        // 処理
+        resolve(`プロミス${input}です`);
+      });
+    }
+    console.log(testPromise3('テスト'));
+
+
+  </script>
+</body>
+</html>
