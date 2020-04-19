@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    function test1() {
+      return '関数1';
+    }
+
+    // 非同期の関数 戻り値がPromiseに (状態(ok/ng)
+    async function aTest1(){
+      return '非同期関数1';
+    }
+
+    console.log(test1());
+    console.log(aTest1());
+    console.log(aTest1().then(value => console.log(value)));
+
+    // await asyncの中でのみ使える
+    function waiting(seconds) {
+      return new Promise(ok => {
+        setTimeout(() => {
+          ok()
+        }, 1000 * seconds)
+      })
+    };
+
+    async function aTest2() {
+      console.log(1);
+      await waiting(2); // awaitをつけるとsetTimeoutがあっても処理を待ってから、次を実行する
+      console.log(3);
+    }
+
+    aTest2();
+
+  </script>
+</body>
+</html>

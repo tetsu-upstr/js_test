@@ -49,6 +49,49 @@
     }
     console.log(testPromise3('テスト'));
 
+    // Promiseチェーン 
+    // Promise.then(ok_callback, ng_callback)
+    // Promise.then((ok_value) => {}, (ng_value) => {})
+
+    // Promise.catch(ng_callback) // NGはCatchで書いた方がわかりやすい
+    // Promise.catch((ng_reason) => {}) // NGはcatch
+
+    // ng も追加
+    function promiseTest4(pay) {
+      return new Promise((ok, ng) => {
+        if (pay > 100) {
+          let change = pay - 100;
+          ok(change);
+        }
+        ng('お金が足りません');
+      });
+    }
+    // if文でインプットの値によって挙動を変える、catchでエラーを捕まえる
+    console.log(promiseTest4(80).catch( e => { console.log(e)} ));
+    
+    // インプットの引数(300)がthenの後のchangeに入る、一番最後にcatch
+    promiseTest4(180).then( change1 => {
+      console.log(change1);
+      return promiseTest4(change1); // Promiseでラップ
+    }).then(change2 => {
+      console.log(change2);
+    }).catch(e => console.log(e));
+
+
+    function promiseTest5(pay, seconds) {
+      return new Promise((ok, ng) => {
+        setTimeout(() => {
+          if (pay > 100) {
+            let change = pay - 100;
+            console.log(`${seconds}秒、おつりは${change}です`);
+            ok(change);
+          }
+            ng('お金が足りません');
+        }, seconds * 1000)        
+      });
+    }
+
+    promiseTest5(400, 3).then(change2 => promiseTest5(change2, 3));
 
   </script>
 </body>
