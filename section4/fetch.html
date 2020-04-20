@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fetch</title>
+</head>
+<style>
+  .w300 {
+    width: 300px;
+  }
+</style>
+<body>
+
+  <div id="image" class="w300"></div>
+
+  <script>
+
+    // Dog API https://dog.ceo/dog-api/
+    const url = 'https://dog.ceo/api/breeds/image/random';
+    const options = {
+      method: 'GET'
+    };
+
+    const fetchTest1 = fetch(url, options);
+    console.log(fetchTest1);
+    // 返り値はPromise
+
+    // APIがJSONで取得できるなら response.json()でjson形式をオブジェクトにパースできる
+    // JavaScriptはオブジェクト形式にエンコードしないと使えない為
+    const fetchTest2 = fetch(url, options).then( response => response.json());
+    // console.log(fetchTest2);
+    console.log(fetchTest2.message);
+
+    function fetchDogImage(url, options){
+      return fetch(url, options)
+      .then( response => response.json() );
+    }
+
+    async function fetchImage(url, options){
+      const response = await fetchDogImage(url, options);
+      // console.log(response.message);
+
+      const imageDiv = document.getElementById('image');
+      const imageElement = document.createElement('img');
+      imageElement.src = response.message;
+      // document.body.appendChild(imageElement);
+      imageDiv.appendChild(imageElement);
+    }
+
+    fetchImage(url, options);
+
+  </script>
+</body>
+</html>
