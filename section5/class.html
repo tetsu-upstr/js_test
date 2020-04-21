@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    
+    class Product {
+
+      // プロパティは関数内に書く（クラス直下ならbabelが必要）
+      
+      // インプットと設定する値を同じにする必要がある
+      constructor(productName){
+        this.product = productName;
+      }
+
+      // メソッドにfunction は不要
+      getProduct(){
+        console.log(this.product);
+      }
+
+      addProduct(item){
+        this.product += item;
+      }
+    }
+
+    const product = new Product('テスト');
+    console.log(product.product); // 定数.プロパティを確認している
+
+    product.getProduct();
+    product.addProduct('追加分です');
+    product.getProduct();
+
+  </script>
+</body>
+</html>
