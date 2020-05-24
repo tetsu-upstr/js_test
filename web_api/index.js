@@ -8,3 +8,17 @@ async function callApi() {
 };
 
 callApi();
+
+
+// 別の書き方 then
+function callApi() {
+  fetch('https://jsonplaceholder.typicode.com/users')
+    .then(function(RESPONSE) {
+      return RESPONSE.json();
+    })
+    .then(function(USERS) {
+      console.log(USERS);
+    })
+};
+
+callApi();
