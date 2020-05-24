@@ -9,25 +9,48 @@
   
   <script>
 
+    class BaseProduct {
+      echoProduct(){
+        console.log('親');
+      }
+
+      getProduct(){
+        console.log('親の関数');
+      }
+    }
+
     
-    class Product {
+    class Product extends BaseProduct {
 
       // プロパティは関数内に書く（クラス直下ならbabelが必要）
       
       // インプットと設定する値を同じにする必要がある
+      // サブクラス内でコンストラクタを使う場合はsuperをつける
       constructor(productName){
-        this.product = productName;
+        // this.product = productName;
+        super(); //必須 親クラスのコンストラクタを参照
+        this.product = [productName]; // 配列の場合
       }
 
-      // メソッドにfunction は不要
+      // メソッドにfunction は不要 同じ名称の場合は子クラスが優先される
       getProduct(){
         console.log(this.product);
       }
 
       addProduct(item){
-        this.product += item;
+        // this.product += item;
+        this.product.push(item); // 配列の場合
       }
+
+      // newでインスタンス化しないでそのまま使える（satatic）
+      static testProduct(){
+        console.log('静的メソッドです');
+      }
+
     }
+
+    // 静的メソッド
+    Product.testProduct();
 
     const product = new Product('テスト');
     console.log(product.product); // 定数.プロパティを確認している
@@ -35,6 +58,9 @@
     product.getProduct();
     product.addProduct('追加分です');
     product.getProduct();
+    product.echoProduct();
+
+
 
   </script>
 </body>
